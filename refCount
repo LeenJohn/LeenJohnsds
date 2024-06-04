@@ -1,0 +1,10 @@
+template<class T>
+class SharedPtr {
+private:
+    T* origin_ptr{ nullptr }; // 
+    RefCount* refCount{ nullptr }; // 
+public:
+    SharedPtr()noexcept = default; // 
+    SharedPtr(nullptr_t)noexcept :SharedPtr() {} // 
+    explicit SharedPtr(T* ptr)noexcept :origin_ptr(ptr), refCount(nullptr){ // 
+        if (origin_ptr != nullptr) refCount = new RefCount();
