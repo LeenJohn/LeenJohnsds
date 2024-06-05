@@ -1,0 +1,16 @@
+      {
+         URL url = new URL(this.getDocumentBase(), audioURL);
+         clip = context.getAudioClip(url);
+      }catch(MalformedURLException e)
+      {
+         e.printStackTrace();
+         context.showStatus("Could not load audio file!");
+      }
+   }
+   public void start()
+   {
+      if(clip != null)
+      {
+         clip.loop();
+      }
+   }
